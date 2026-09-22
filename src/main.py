@@ -1,6 +1,6 @@
 from collector import collect_research
 from analyzer import analyze_research
-
+from reporter import save_report
 
 def main():
     print("\n🤖 AI Research Intelligence Agent")
@@ -26,6 +26,9 @@ def main():
     print("STRATEGIC INTELLIGENCE BRIEF")
     print("=" * 60)
     print(analysis)
+    report_path = save_report(topic, analysis, sources)
+
+    print(f"\n💾 Report saved to: {report_path}") 
 
 
 if __name__ == "__main__":
