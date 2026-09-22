@@ -16,9 +16,17 @@ def main():
 
     print(f"\n📚 Sources collected: {len(sources)}")
 
+    # Display collected sources
     for source in sources:
         print(f"\n📰 {source['title']}")
+        print(f"🏢 Source: {source['source']}")
+        print(f"📅 Published: {source['published']}")
         print(f"🔗 {source['url']}")
+
+    # Stop if no sources were found
+    if not sources:
+        print("\n⚠️ No relevant sources were found.")
+        return
 
     # Analyze research
     print("\n🧠 Analyzing research with AI...")
