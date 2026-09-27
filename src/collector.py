@@ -6,6 +6,7 @@ import feedparser
 
 from semantic_ranker import rank_articles_semantically
 from hybrid_ranker import rank_articles_hybrid
+from reranker import rerank_articles
 
 
 RSS_FEEDS = [
@@ -61,7 +62,7 @@ def calculate_relevance(topic, title, summary):
 
 
 def parse_date(entry):
-    """Convert RSS publication date into a datetime."""
+    """Convert an RSS publication date into a datetime."""
 
     published = entry.get("published", "")
 
@@ -82,8 +83,11 @@ def parse_date(entry):
 
 def collect_research(topic, max_results=15):
     """
-    Collect recent articles and rank them using
-    semantic similarity, keyword relevance, and recency.
+    Collect and rank recent articles using:
+    - recency filtering
+    - semantic retrieval
+    - hybrid scoring
+    - cross-encoder reranking
     """
 
     print(f"\n🌐 Collecting research about: {topic}")
@@ -91,7 +95,6 @@ def collect_research(topic, max_results=15):
     results = []
     seen_urls = set()
 
-    # Only consider articles from the last 12 months
     cutoff_date = datetime.now(timezone.utc) - timedelta(days=365)
 
     # ------------------------------------------------
@@ -111,7 +114,6 @@ def collect_research(topic, max_results=15):
             )
             continue
 
-        # Skip a feed if it failed and contains no entries
         if getattr(feed, "bozo", False) and not feed.entries:
             print(
                 f"   ⚠️ Invalid or unavailable feed: "
@@ -130,11 +132,9 @@ def collect_research(topic, max_results=15):
                 "Unknown date",
             )
 
-            # Skip entries without URLs
             if not link:
                 continue
 
-            # Skip duplicate URLs
             if link in seen_urls:
                 continue
 
@@ -209,13 +209,13 @@ def collect_research(topic, max_results=15):
     )
 
     # ------------------------------------------------
-    # 5. Semantic relevance threshold
+    # 5. Semantic threshold
     # ------------------------------------------------
 
     semantic_articles = [
         article
         for article in semantic_articles
-        if article["semantic_score"] >= 0.25
+        if article["semantic_score"] >= 0.35
     ]
 
     print(
@@ -234,16 +234,33 @@ def collect_research(topic, max_results=15):
     # 6. Hybrid ranking
     # ------------------------------------------------
 
-    ranked_articles = rank_articles_hybrid(
+    hybrid_articles = rank_articles_hybrid(
         semantic_articles
     )
 
-    # Keep only the best articles
-    ranked_articles = ranked_articles[:max_results]
-
     print(
-        f"   Selected {len(ranked_articles)} "
-        f"articles after hybrid ranking."
+        f"   Hybrid ranking produced "
+        f"{len(hybrid_articles)} candidates."
     )
 
-    return ranked_articles
+    # ------------------------------------------------
+    # 7. Cross-encoder reranking
+    # ------------------------------------------------
+
+    print(
+        f"   Cross-encoder reranking "
+        f"{len(hybrid_articles)} candidates..."
+    )
+
+    reranked_articles = rerank_articles(
+        topic,
+        hybrid_articles,
+        top_k=max_results,
+    )
+
+    print(
+        f"   Selected {len(reranked_articles)} "
+        f"articles after cross-encoder reranking."
+    )
+
+    return reranked_articles

@@ -64,10 +64,10 @@ def rank_articles_hybrid(articles):
 
         # Semantic meaning is the most important signal
         final_score = (
-            semantic_score * 0.60
+            semantic_score * 0.70
             + keyword_score * 0.25
-            + recency_score * 0.15
-        )
+            + recency_score * 0.05
+       )
 
         article_copy = article.copy()
 
@@ -83,4 +83,3 @@ def rank_articles_hybrid(articles):
     )
 
     return ranked_articles
-    
