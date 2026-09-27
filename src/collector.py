@@ -5,9 +5,9 @@ from email.utils import parsedate_to_datetime
 import feedparser
 
 from semantic_ranker import rank_articles_semantically
+from hybrid_ranker import rank_articles_hybrid
 
 
-# RSS sources used by the research agent
 RSS_FEEDS = [
     {
         "name": "TechCrunch AI",
@@ -35,7 +35,7 @@ def normalize_text(text):
 
 
 def calculate_relevance(topic, title, summary):
-    """Calculate a basic keyword relevance score."""
+    """Calculate basic keyword relevance."""
 
     normalized_topic = normalize_text(topic)
     normalized_title = normalize_text(title)
@@ -48,16 +48,12 @@ def calculate_relevance(topic, title, summary):
     score = 0
 
     for word in topic_words:
-
-        # Title matches are weighted more heavily
         if word in title_words:
             score += 3
 
-        # Summary matches
         if word in summary_words:
             score += 1
 
-    # Bonus if the complete topic appears in the title
     if normalized_topic in normalized_title:
         score += 5
 
@@ -65,7 +61,7 @@ def calculate_relevance(topic, title, summary):
 
 
 def parse_date(entry):
-    """Convert an RSS publication date into a datetime object."""
+    """Convert RSS publication date into a datetime."""
 
     published = entry.get("published", "")
 
@@ -86,8 +82,8 @@ def parse_date(entry):
 
 def collect_research(topic, max_results=15):
     """
-    Collect recent articles from multiple RSS feeds,
-    remove duplicates, and rank them using semantic similarity.
+    Collect recent articles and rank them using
+    semantic similarity, keyword relevance, and recency.
     """
 
     print(f"\n🌐 Collecting research about: {topic}")
@@ -95,18 +91,17 @@ def collect_research(topic, max_results=15):
     results = []
     seen_urls = set()
 
-    # Only use articles from the last 12 months
+    # Only consider articles from the last 12 months
     cutoff_date = datetime.now(timezone.utc) - timedelta(days=365)
 
     # ------------------------------------------------
-    # 1. Collect articles from RSS sources
+    # 1. Collect articles
     # ------------------------------------------------
 
     for source in RSS_FEEDS:
 
         print(f"   Checking {source['name']}...")
 
-        # A single unavailable RSS source should not crash the agent
         try:
             feed = feedparser.parse(source["url"])
 
@@ -116,10 +111,11 @@ def collect_research(topic, max_results=15):
             )
             continue
 
-        # Handle malformed feeds
+        # Skip a feed if it failed and contains no entries
         if getattr(feed, "bozo", False) and not feed.entries:
             print(
-                f"   ⚠️ Invalid or unavailable feed: {source['name']}"
+                f"   ⚠️ Invalid or unavailable feed: "
+                f"{source['name']}"
             )
             continue
 
@@ -128,6 +124,7 @@ def collect_research(topic, max_results=15):
             title = entry.get("title", "")
             summary = entry.get("summary", "")
             link = entry.get("link", "")
+
             published = entry.get(
                 "published",
                 "Unknown date",
@@ -137,7 +134,7 @@ def collect_research(topic, max_results=15):
             if not link:
                 continue
 
-            # Skip duplicate articles
+            # Skip duplicate URLs
             if link in seen_urls:
                 continue
 
@@ -174,7 +171,7 @@ def collect_research(topic, max_results=15):
     )
 
     # ------------------------------------------------
-    # 2. Stop if no articles were collected
+    # 2. Stop if nothing was collected
     # ------------------------------------------------
 
     if not results:
@@ -182,7 +179,7 @@ def collect_research(topic, max_results=15):
         return []
 
     # ------------------------------------------------
-    # 3. Pre-rank candidates
+    # 3. Candidate pre-ranking
     # ------------------------------------------------
 
     results.sort(
@@ -194,7 +191,6 @@ def collect_research(topic, max_results=15):
         reverse=True,
     )
 
-    # Limit embedding workload
     candidate_articles = results[:100]
 
     print(
@@ -203,18 +199,51 @@ def collect_research(topic, max_results=15):
     )
 
     # ------------------------------------------------
-    # 4. Semantic ranking using embeddings
+    # 4. Semantic ranking
     # ------------------------------------------------
 
-    ranked_articles = rank_articles_semantically(
+    semantic_articles = rank_articles_semantically(
         topic,
         candidate_articles,
-        top_k=max_results,
+        top_k=50,
     )
+
+    # ------------------------------------------------
+    # 5. Semantic relevance threshold
+    # ------------------------------------------------
+
+    semantic_articles = [
+        article
+        for article in semantic_articles
+        if article["semantic_score"] >= 0.25
+    ]
+
+    print(
+        f"   {len(semantic_articles)} articles passed "
+        f"the semantic relevance threshold."
+    )
+
+    if not semantic_articles:
+        print(
+            "   ⚠️ No articles passed the semantic "
+            "relevance threshold."
+        )
+        return []
+
+    # ------------------------------------------------
+    # 6. Hybrid ranking
+    # ------------------------------------------------
+
+    ranked_articles = rank_articles_hybrid(
+        semantic_articles
+    )
+
+    # Keep only the best articles
+    ranked_articles = ranked_articles[:max_results]
 
     print(
         f"   Selected {len(ranked_articles)} "
-        f"semantically relevant articles."
+        f"articles after hybrid ranking."
     )
 
     return ranked_articles
