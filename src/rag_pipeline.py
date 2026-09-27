@@ -4,6 +4,16 @@ from article_extractor import extract_article_text
 from chunker import chunk_text
 from vector_store import VectorStore
 
+from config import (
+    CROSS_ENCODER_MODEL,
+    RAG_MAX_ARTICLES,
+    RAG_TOP_K,
+    RAG_CANDIDATE_MULTIPLIER,
+    RAG_MIN_CANDIDATES,
+    VECTOR_MIN_SCORE,
+    MAX_CHUNKS_PER_SOURCE,
+)
+
 
 chunk_reranker = CrossEncoder(
     "cross-encoder/ms-marco-MiniLM-L6-v2"
