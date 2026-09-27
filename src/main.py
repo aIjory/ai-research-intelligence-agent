@@ -1,5 +1,6 @@
 from collector import collect_research
-from analyzer import analyze_research
+from rag_pipeline import build_rag_context
+from rag_analyzer import analyze_rag_evidence
 from reporter import save_report
 
 
@@ -11,31 +12,47 @@ def main():
 
     print(f"\n🔎 Research topic: {topic}")
 
-    # Collect research sources
+    # 1. Find and rank relevant articles
     sources = collect_research(topic)
 
     print(f"\n📚 Sources collected: {len(sources)}")
 
-    # Display collected sources
+    if not sources:
+        print("\n⚠️ No relevant sources were found.")
+        return
+
+    # Display selected articles
     for source in sources:
         print(f"\n📰 {source['title']}")
         print(f"🏢 Source: {source['source']}")
         print(f"📅 Published: {source['published']}")
         print(f"🔗 {source['url']}")
 
-    # Stop if no sources were found
-    if not sources:
-        print("\n⚠️ No relevant sources were found.")
+    # 2. Build RAG knowledge base and retrieve evidence
+    evidence = build_rag_context(
+        topic,
+        sources,
+        max_articles=5,
+        top_k=8,
+    )
+
+    if not evidence:
+        print("\n⚠️ No usable evidence could be retrieved.")
         return
 
-    # Analyze research
-    print("\n🧠 Analyzing research with AI...")
+    print(f"\n🔍 Retrieved {len(evidence)} evidence chunks.")
 
-    analysis = analyze_research(topic, sources)
+    # 3. Analyze retrieved evidence with the LLM
+    print("\n🧠 Analyzing retrieved evidence with AI...")
 
-    # Display structured analysis
+    analysis = analyze_rag_evidence(
+        topic,
+        evidence,
+    )
+
+    # 4. Display structured analysis
     print("\n" + "=" * 60)
-    print("STRATEGIC INTELLIGENCE BRIEF")
+    print("RAG-GROUNDED STRATEGIC INTELLIGENCE BRIEF")
     print("=" * 60)
 
     print("\n📌 RAW FACTS")
@@ -52,8 +69,12 @@ def main():
     print(f"Level: {analysis.confidence.level}")
     print(f"Reason: {analysis.confidence.reason}")
 
-    # Save report
-    report_path = save_report(topic, analysis, sources)
+    # 5. Save report
+    report_path = save_report(
+        topic,
+        analysis,
+        sources,
+    )
 
     print(f"\n💾 Report saved to: {report_path}")
 
