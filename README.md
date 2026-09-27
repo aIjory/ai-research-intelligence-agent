@@ -11,15 +11,15 @@ Instead of manually reviewing multiple articles, the system collects relevant re
 
 ## ✨ Features
 
-- 🌐 Live research collection from RSS feeds
-- 🔎 Topic-based source filtering
+- Live research collection from RSS feeds
+- Topic-based source filtering
 - 🤗 Hugging Face LLM inference
-- 🧠 AI-powered strategic analysis
-- 📌 Separation of raw facts from strategic interpretation
-- 🎯 Confidence assessment
-- ✅ Structured output validation using Pydantic
-- 📝 Automatic Markdown intelligence reports
-- 🔐 Secure API token management using environment variables
+- AI-powered strategic analysis
+- Separation of raw facts from strategic interpretation
+- Confidence assessment
+- Structured output validation using Pydantic
+- Automatic Markdown intelligence reports
+- Secure API token management using environment variables
 
 ## 🏗️ Architecture
 
