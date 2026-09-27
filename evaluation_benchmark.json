@@ -1,0 +1,417 @@
+[
+  {
+    "query": "autonomous coding assistants",
+    "results": [
+      {
+        "rank": 1,
+        "title": "ScarfBench: Benchmarking AI Agents for Enterprise Java Framework Migration",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/scarfbench",
+        "text": "figuration-related artifacts while resolving framework differences and dependency issues.\nNot every migration issue originates from source code.\nAgents frequently struggled with environmental issues, including:\nThese operational concerns often delayed validation even when the source-code migration itself was largely complete.\nModernization failures span build systems, deployment environments, dependency injection, databases, endpoints, assertions, and infrastructure.\nThe biggest challenge in framework modernization is not translating Java code.\nIt is managing the web of dependencies across configuration, infrastructure, and runtime environments.\nWhile frontier agents can automate substantial portions of the migration process, reliable validation and architectural reasoning remain critical for achieving successful outcomes.\nScarfBench helps expose these challenges and provides a standardized way to measure progress toward truly autonomous application modernization.\nScarfBench is designe",
+        "vector_score": 0.2670241594314575,
+        "reranker_score": -8.98708724975586,
+        "relevant": true
+      },
+      {
+        "rank": 2,
+        "title": "ScarfBench: Benchmarking AI Agents for Enterprise Java Framework Migration",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/scarfbench",
+        "text": "for achieving successful outcomes.\nScarfBench helps expose these challenges and provides a standardized way to measure progress toward truly autonomous application modernization.\nScarfBench is designed as an open resource for researchers and practitioners.\nResearchers can compare agent architectures and techniques. Practitioners can use ScarfBench to evaluate modernization solutions before deploying them in production environments.\nhttps://huggingface.co/datasets/ibm-research/ScarfBench\nhttps://huggingface.co/spaces/ibm-research/ScarfBench\nhttps://github.com/scarfbench/scarfbench\nFramework migration remains one of the largest unsolved problems in AI-assisted software engineering. We hope ScarfBench helps the community measure progress and accelerate the next generation of AI-assisted application modernization.\nWe invite researchers, practitioners, and framework communities to evaluate their agents, contribute new migration scenarios and help advance the state of the art.",
+        "vector_score": 0.344887912273407,
+        "reranker_score": -9.230218887329102,
+        "relevant": true
+      },
+      {
+        "rank": 3,
+        "title": "Give Your Coding Agents a Memory You Own",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/funes",
+        "text": "I work across several machines, and I switch coding agents depending on the task.\nEvery one of them meets my projects as a stranger. The reasoning from “last Tuesday”\ndisappears when the session ends. Each new agent, on each new host, starts from zero.\nEarlier this year, Software Forgets: Agent Traces Are the\nMemory made the case\nthat coding agents already produce the record we keep losing. As they search a\ncodebase, try approaches, hit errors, read documentation, and change direction, they\nleave behind a dense account of not just what changed, but why .\nWhile the diagnosis is correct, traces are only potential memory. The session logs of\nan agent are still just an archive. You cannot grep your way to “why did we move\noff the streaming parser?” across ten thousand turns. For an agent to use those traces\nwhile it works, they need indexing, retrieval, ranking, and exact provenance.\nThat is what funes provides. It is a durable\nmemory layer for your agents (Claude Code, Codex, pi, and Herm",
+        "vector_score": 0.30672067403793335,
+        "reranker_score": -9.802267074584961,
+        "relevant": true
+      },
+      {
+        "rank": 4,
+        "title": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/pwc-search",
+        "text": "3 months ago, we started a revival of Papers with Code (see also the announcement tweet ). Its goal is to make open AI research accessible and digestible, so that people can easily find the artifacts related to a paper, find state-of-the-art (SOTA) across the various domains of AI, share interesting research and build on top of each other's work. In other words, its goal is to power the wave of research that leads to the next Transformer .\nOf course, making AI research accessible requires a powerful search engine, so that humans and agents can quickly find relevant and related work, either through the website or the pwc search CLI command , which agents can use via the Skill .\nIt's important to note that searching for research is not quite the same as searching for regular text. A useful paper search engine should find an exact title or arXiv identifier, but it should also understand a query such as “small language models for code generation” even when those words do not appear togethe",
+        "vector_score": 0.34019333124160767,
+        "reranker_score": -10.066911697387695,
+        "relevant": false
+      },
+      {
+        "rank": 5,
+        "title": "Grabette: an open system to record robot-manipulation data",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/grabette",
+        "text": "Record your own manipulation tasks in minutes with a handheld gripper, turn them into robot-ready datasets automatically, and help grow an open, collaborative dataset for robot learning.\nRobot learning has a supply problem. We have capable policy architectures (transformer-based VLAs, diffusion and flow-matching policies, and even world models) and the GPUs to train them. What we lack is large, diverse, real-world manipulation data.\nTeleoperating a robot to collect it can be expensive and demanding: first of all, it requires a robot . And depending on the teleoperation method, data collection can be tedious for the user if it takes hours and involve significant hardware and logistical challenges. That is difficult to scale with the wide variety of tasks and environnements required.\nBut you don't need a robot to collect robot data. Just a human hand, a gripper, a camera, and a way to recover the 6-DoF trajectory of what the hand did. Capture the demonstration and you have data a robot c",
+        "vector_score": 0.3850841820240021,
+        "reranker_score": -10.592935562133789,
+        "relevant": false
+      },
+      {
+        "rank": 6,
+        "title": "Give Your Coding Agents a Memory You Own",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/funes",
+        "text": "e those traces\nwhile it works, they need indexing, retrieval, ranking, and exact provenance.\nThat is what funes provides. It is a durable\nmemory layer for your agents (Claude Code, Codex, pi, and Hermes). It is built from the\nsessions already on your machine. It works locally and becomes part of your agent's\nnormal workflow with one command. When you want it to, it can also travel to a Hugging\nFace dataset you own, private by default.\nfunes is a single binary. Its default inference backend has no ML runtime dependency,\nand embedding and reranking happen on your machine . Install it:\nThat one add command builds the first index, gives the agent recall and get tools, and installs the automation that indexes each completed turn. Indexing is\nincremental, with new runs adding new turns rather than embedding the whole history\n again. The older and deeper content can backfill in bounded steps.\nFrom there, you just work. When a task touches a past decision, rationale, or finding,\nthe agent can",
+        "vector_score": 0.31920623779296875,
+        "reranker_score": -10.745428085327148,
+        "relevant": true
+      },
+      {
+        "rank": 7,
+        "title": "Astra and Opus just passed Turing’s other test",
+        "source": "TechCrunch AI",
+        "url": "https://techcrunch.com/2026/09/25/astra-and-opus-just-passed-turings-other-test/",
+        "text": "chival messages remain unbroken — usually due to mistranscription or errors by the original encoders.\nCarter Leffen, a developer, simply told OpenAI’s newest model, Astra, to search a database of Enigma messages for an unbroken message and decode it. The model was able to do just that , after doing its own archival research, finding context clues, building a simulator of the Enigma machine, and ultimately recovering the plaintext of a message that had baffled researchers since 2005. He even used Astra to build an interactive website explaining the whole problem.\nFrode Weierud, a retired electrical engineer with a lifelong interest in cryptology, maintains the website Crypto Cellar , which includes a variety of resources and records and a database of messages. Last week, Weierud validated Leffen’s solution, which he said left him in “awe.”\nNotably, given the lengths that AI agents will go to answer the questions in front of them, the Astra model’s logs include discussion of archived mes",
+        "vector_score": 0.3493523597717285,
+        "reranker_score": -10.747133255004883,
+        "relevant": false
+      },
+      {
+        "rank": 8,
+        "title": "Astra and Opus just passed Turing’s other test",
+        "source": "TechCrunch AI",
+        "url": "https://techcrunch.com/2026/09/25/astra-and-opus-just-passed-turings-other-test/",
+        "text": "Disrupt 2026: OpenAI, Anthropic, Replit, and more take over 6 industry stages. 25% off tickets now\nDisrupt ticket savings of up to $200 + 50% off a second ends Sept 25, 11:59 p.m. PT. REGISTER HERE.\nComputer pioneer Alan Turing is best known for his eponymous experiment to test whether artificial and human intelligence can be distinguished. However, the more important test he faced during his lifetime was cracking the Enigma code used by Nazi Germany during World War II.\nNow, a pair of cryptanalysts say they’ve cracked two long-unsolved messages encoded by Enigma machines using LLMs built by OpenAI and Anthropic.\nWhile Turing and his team of cryptanalysts built an early computer, dubbed the Bombe , that allowed the United Kingdom to translate Enigma messages during the war, a handful of archival messages remain unbroken — usually due to mistranscription or errors by the original encoders.\nCarter Leffen, a developer, simply told OpenAI’s newest model, Astra, to search a database of Enig",
+        "vector_score": 0.31998053193092346,
+        "reranker_score": -10.780265808105469,
+        "relevant": false
+      }
+    ]
+  },
+  {
+    "query": "AI agent memory",
+    "results": [
+      {
+        "rank": 1,
+        "title": "How Much Memory Does Your Agent Actually Need?",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/altk-evolve-hmm",
+        "text": "is the headline \"did it get the job done\" number.\nSGC — Scenario Goal Completion. A stricter, all-or-nothing metric. Each scenario bundles several variants of the same task (the same request with different data, phrasing, or edge conditions). SGC counts a scenario as passing only if the agent succeeds on every variant. It measures reliability — an agent that solves a task most of the time but fails on one variant scores on TGC but not on SGC.\nReally interesting take on agentic memory. The idea that memory needs to be calibrated to the model rather than simply accumulated is especially useful for production systems. Selective retrieval also seems like a practical way to improve reliability without unnecessarily increasing context and inference costs. It makes a strong case for thoughtful custom AI agent development and enterprise AI agent solutions, where memory, performance, and cost all need to be designed together. https://mobisoftinfotech.com/services/ai-agent-development-company",
+        "vector_score": 0.5961267948150635,
+        "reranker_score": 3.9250195026397705,
+        "relevant": true
+      },
+      {
+        "rank": 2,
+        "title": "How Much Memory Does Your Agent Actually Need?",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/altk-evolve-hmm",
+        "text": "In our previous post , we compared ALTK-Evolve with ACE and showed that how you deliver an agent's self-distilled guidelines — a few retrieved per task vs. the whole set injected — drives both accuracy and cost. This post steps back to the question that comes before it: how much should you give it?\nEquipping an agent with agentic memory sounds simple: distill lessons from its past work, put them back in context, and more experience should mean better performance. It doesn't always work that way. When we scaled the evaluation to eight models — from a 30B dense model to frontier proprietary systems — one finding stood out:\nAgentic memory is not a feature you switch on. It's a dose you calibrate to the model.\nALTK-Evolve lets an agent learn from its own past trajectories: distilling reusable guidelines and injecting them back at inference time, with no weight updates and no human annotation.\nThe right dose differs by model tier: strong models with headroom want the full guideline set, wea",
+        "vector_score": 0.6509602665901184,
+        "reranker_score": 0.6666426658630371,
+        "relevant": true
+      },
+      {
+        "rank": 3,
+        "title": "Give Your Coding Agents a Memory You Own",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/funes",
+        "text": "e those traces\nwhile it works, they need indexing, retrieval, ranking, and exact provenance.\nThat is what funes provides. It is a durable\nmemory layer for your agents (Claude Code, Codex, pi, and Hermes). It is built from the\nsessions already on your machine. It works locally and becomes part of your agent's\nnormal workflow with one command. When you want it to, it can also travel to a Hugging\nFace dataset you own, private by default.\nfunes is a single binary. Its default inference backend has no ML runtime dependency,\nand embedding and reranking happen on your machine . Install it:\nThat one add command builds the first index, gives the agent recall and get tools, and installs the automation that indexes each completed turn. Indexing is\nincremental, with new runs adding new turns rather than embedding the whole history\n again. The older and deeper content can backfill in bounded steps.\nFrom there, you just work. When a task touches a past decision, rationale, or finding,\nthe agent can",
+        "vector_score": 0.5434845685958862,
+        "reranker_score": 0.42242276668548584,
+        "relevant": true
+      },
+      {
+        "rank": 4,
+        "title": "Give Your Coding Agents a Memory You Own",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/funes",
+        "text": "I work across several machines, and I switch coding agents depending on the task.\nEvery one of them meets my projects as a stranger. The reasoning from “last Tuesday”\ndisappears when the session ends. Each new agent, on each new host, starts from zero.\nEarlier this year, Software Forgets: Agent Traces Are the\nMemory made the case\nthat coding agents already produce the record we keep losing. As they search a\ncodebase, try approaches, hit errors, read documentation, and change direction, they\nleave behind a dense account of not just what changed, but why .\nWhile the diagnosis is correct, traces are only potential memory. The session logs of\nan agent are still just an archive. You cannot grep your way to “why did we move\noff the streaming parser?” across ten thousand turns. For an agent to use those traces\nwhile it works, they need indexing, retrieval, ranking, and exact provenance.\nThat is what funes provides. It is a durable\nmemory layer for your agents (Claude Code, Codex, pi, and Herm",
+        "vector_score": 0.5642217397689819,
+        "reranker_score": 0.38271188735961914,
+        "relevant": true
+      },
+      {
+        "rank": 5,
+        "title": "Harness, Scaffold, and the AI Agent Terms Worth Getting Right",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/agent-glossary",
+        "text": "ing process created from an Agent Definition (like an object instantiated from a class in Java).\nAgent / AI Agent – avoid; use the specific term (CLI, Definition, or Instance) depending on what you mean; not to forget that “Agent” can also mean the CI pipeline agent or a human agent\nit's a standardization protocol that makes the Tool Use → Harness connection much cleaner and more interoperable. The glossary describes what agents do; MCP is a specification for how they do the tool-calling part reliably across different vendors and implementations.\nAppreciate the nice writeup. Can we add a) Leaderboard, b) Benchmark\nReally useful glossary, and I especially appreciate the attempt to separate the model, harness, scaffold, tools, context, and training loop.\nOne concern I have is with standardizing on “scaffolding” as the term for the behavior-defining layer around the model. To me, “scaffolding” already feels quite overloaded, specifically in software projects. It is used extensively in cod",
+        "vector_score": 0.4864450693130493,
+        "reranker_score": -1.4203046560287476,
+        "relevant": false
+      },
+      {
+        "rank": 6,
+        "title": "Harness, Scaffold, and the AI Agent Terms Worth Getting Right",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/agent-glossary",
+        "text": "y, tool results, previous reasoning. Long-term memory persists across sessions, stored externally and retrieved on demand, then injected back into context when relevant.\nA policy is the behavior an agent follows: given any situation, it defines the probability of taking each possible action. In LLM systems, part of that policy is learned in the model weights, but the behavior also depends on the surrounding scaffolding and harness. The same model can behave very differently depending on its prompts, tools, memory, and execution loop.\nA policy is not an agent. The policy defines behavior; the agent is the full system that acts in an environment. Wrap a checkpoint in scaffolding and a harness and deploy it, and you get an agent whose behavior is the policy.\nHow agents reach outside themselves: APIs, code interpreters, databases, web search, file systems. The model expresses the intent to use a tool in a structured format. Modern inference APIs surface this as a first-class object: the ha",
+        "vector_score": 0.5933211445808411,
+        "reranker_score": -1.8945612907409668,
+        "relevant": null
+      },
+      {
+        "rank": 7,
+        "title": "ScarfBench: Benchmarking AI Agents for Enterprise Java Framework Migration",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/scarfbench",
+        "text": "Modernizing enterprise applications is one of the largest and most expensive software engineering activities organizations undertake. Teams migrate applications across frameworks to improve maintainability, cloud readiness, developer productivity, and access to modern capabilities.\nRecent advances in coding agents have sparked excitement around AI-assisted modernization. But an important question remains:\nCan AI agents reliably modernize real-world enterprise applications?\nExisting software engineering benchmarks have demonstrated impressive progress in bug fixing and code generation, but framework migration presents a fundamentally different challenge. Success requires not only translating code, but also preserving behavior, adapting build systems, and navigating runtime dependencies.\nTo address this gap, we introduce ScarfBench (Self-Contained Application Refactoring Benchmark) , an open benchmark for evaluating AI agents on cross-framework migration tasks in Enterprise Java.\nScarfBe",
+        "vector_score": 0.33743494749069214,
+        "reranker_score": -2.630221366882324,
+        "relevant": null
+      },
+      {
+        "rank": 8,
+        "title": "Unsecured OpenAI agents posted 53 user images on the internet without the lab’s knowledge",
+        "source": "TechCrunch AI",
+        "url": "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/",
+        "text": "ncies, to notify them of the agents’ activities.\nThis week, Australian prime minister Anthony Albanese said OpenAI agents broke into databases operated by his country’s national healthcare system, one of multiple cybersecurity incidents this year apparently caused by an OpenAI training or evaluation program.\nAccording to OpenAI, its agents posted user-provided images on the internet before the company implemented a series of new security procedures, although exactly when or why this happened remains unclear. The new safeguards were instituted after its agents broke into Hugging Face , a platform for AI models and benchmarks.\nThe leakage of these images was revealed as the company faces allegations from mathematicians that OpenAI models cribbed from their work to solve long-standing problems in the field, which the lab denies. Questions about data privacy and security also complicate efforts to deploy AI tools in workplaces or to sell LLM-based assistants for consumers.\nOpenAI stressed",
+        "vector_score": 0.48175927996635437,
+        "reranker_score": -3.0208497047424316,
+        "relevant": null
+      }
+    ]
+  },
+  {
+    "query": "enterprise software migration with AI agents",
+    "results": [
+      {
+        "rank": 1,
+        "title": "ScarfBench: Benchmarking AI Agents for Enterprise Java Framework Migration",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/scarfbench",
+        "text": "Modernizing enterprise applications is one of the largest and most expensive software engineering activities organizations undertake. Teams migrate applications across frameworks to improve maintainability, cloud readiness, developer productivity, and access to modern capabilities.\nRecent advances in coding agents have sparked excitement around AI-assisted modernization. But an important question remains:\nCan AI agents reliably modernize real-world enterprise applications?\nExisting software engineering benchmarks have demonstrated impressive progress in bug fixing and code generation, but framework migration presents a fundamentally different challenge. Success requires not only translating code, but also preserving behavior, adapting build systems, and navigating runtime dependencies.\nTo address this gap, we introduce ScarfBench (Self-Contained Application Refactoring Benchmark) , an open benchmark for evaluating AI agents on cross-framework migration tasks in Enterprise Java.\nScarfBe",
+        "vector_score": 0.636267364025116,
+        "reranker_score": 7.080724239349365,
+        "relevant": true
+      },
+      {
+        "rank": 2,
+        "title": "ScarfBench: Benchmarking AI Agents for Enterprise Java Framework Migration",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/scarfbench",
+        "text": "translating framework semantics, not just source code.\nScarfBench provides a systematic way to evaluate AI agents on enterprise Java framework migration tasks.\nThis provides a much more realistic measure of modernization quality.\nScarfBench includes both focused migration tasks and whole-application migrations.\nFigure: ScarfBench Construction Pipeline\nStarting from a JSR-based enterprise Java taxonomy, expert migrations create verified implementations across Spring, Jakarta EE, and Quarkus.\nWe evaluated several state-of-the-art coding agents on ScarfBench.\nDespite strong performance on traditional software engineering benchmarks, framework migration remains difficult. Success rates vary considerably across framework pairs and whole-application migrations remain particularly challenging.\nFigure: Compile → Deploy → Test Progression\nCompile success consistently exceeds deploy success, which in turn exceeds behavioral success. Build success alone significantly overestimates migration qual",
+        "vector_score": 0.5699423551559448,
+        "reranker_score": 6.436225891113281,
+        "relevant": true
+      },
+      {
+        "rank": 3,
+        "title": "Beyond LLMs: Why Scalable Enterprise AI Adoption Depends on Agent Logic",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/agent-logic-and-scalable-ai-adoption",
+        "text": "ghts agent: https://www.ibm.com/new/announcements/maximo-condition-insight\nGreat post! The discussion around agent logic and scalable AI adoption highlights some important considerations for organizations building production-ready AI systems. For developers exploring the frameworks behind modern AI agents, this resource is also worth checking out: https://mobisoftinfotech.com/resources/blog/ai-development/top-ai-agent-sdks-frameworks-automation-2026\nThe focus on agent logic and scalable adoption is important because getting an agent to work in a demo is very different from deploying one reliably across an organization. Architecture, tool integration, evaluation, governance, and the ability to adapt to different workflows all become critical at enterprise scale. I’ve been exploring this implementation side and found Mobisoft Infotech interesting for enterprise AI agent solutions, custom AI agent development, and AI agent consulting: https://mobisoftinfotech.com/services/ai-agent-develop",
+        "vector_score": 0.6640165448188782,
+        "reranker_score": 1.9779831171035767,
+        "relevant": false
+      },
+      {
+        "rank": 4,
+        "title": "Beyond LLMs: Why Scalable Enterprise AI Adoption Depends on Agent Logic",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/agent-logic-and-scalable-ai-adoption",
+        "text": "lementation side and found Mobisoft Infotech interesting for enterprise AI agent solutions, custom AI agent development, and AI agent consulting: https://mobisoftinfotech.com/services/ai-agent-development-company",
+        "vector_score": 0.5929064154624939,
+        "reranker_score": 1.4683408737182617,
+        "relevant": false
+      },
+      {
+        "rank": 5,
+        "title": "AssetOpsBench: Bridging the Gap Between AI Agent Benchmarks and Industrial Reality",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/assetopsbench-playground-on-hugging-face",
+        "text": "enterprise deployment\nI wrote a deeper technical perspective on this, especially through an Industry 4.0 and enterprise adoption lens. Kindly check it out:\nhttps://medium.com/@nijesh-kanjinghat/industrial-autonomy-a-technical-evaluation-of-assetopsbench-for-multi-agent-systems-in-industry-4-0-5fe1eef7fe98\nalways a very relevant topic for asset lifecycle management\nAssetOpsBench is a fascinating approach to evaluating AI agents in real industrial environments. The focus on task completion, verification, hallucination, and failure awareness makes the benchmark especially valuable. I also found this resource on LLM evaluation for AI agent development: https://mobisoftinfotech.com/resources/blog/ai-development/llm-evaluation-for-ai-agent-development . Great perspective on agent evaluation!",
+        "vector_score": 0.5867125988006592,
+        "reranker_score": 1.3392561674118042,
+        "relevant": false
+      },
+      {
+        "rank": 6,
+        "title": "AssetOpsBench: Bridging the Gap Between AI Agent Benchmarks and Industrial Reality",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/assetopsbench-playground-on-hugging-face",
+        "text": "AssetOpsBench is a comprehensive benchmark and evaluation system with six qualitative dimensions that bridges the gap for agentic AI in domain-specific settings, starting with industrial Asset Lifecycle Management.\nWhile existing AI benchmarks excel at isolated tasks such as coding or web navigation, they often fail to capture the complexity of real-world industrial operations. To bridge this gap, we introduce AssetOpsBench , a framework specifically designed to evaluate agent performance across six critical dimensions of industrial applications. Unlike traditional benchmarks, AssetOpsBench emphasizes the need for multi-agent coordination—moving beyond `lone wolf' models to systems that can handle complex failure modes, integrate multiple data streams, and manage intricate work orders. By focusing on these high-stakes, multi-agent dynamics, the benchmark ensures that AI agents are assessed on their ability to navigate the nuances and safety-critical demands of a true industrial environ",
+        "vector_score": 0.5388630628585815,
+        "reranker_score": -2.420933485031128,
+        "relevant": null
+      },
+      {
+        "rank": 7,
+        "title": "IBM and UC Berkeley Diagnose Why Enterprise Agents Fail Using IT-Bench and MAST",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/itbenchandmast",
+        "text": "res, revealing exactly what broke and how to fix it. We annotated 310 ITBench SRE traces across three distinct model classes: Gemini-3-Flash, Kimi-K2, and GPT-OSS-120B.\nTakeaways from our analysis when building agents:\nIf you’re building agents for enterprise IT workflows, this is the kind of evaluation you want: not just “did it pass?”, but “what broke, where, and what intervention is most leverageable?”\nBenchmarks like ITBench are becoming the standard for measuring agentic performance in high-stakes IT automation tasks. In ITBench, agents act as Site Reliability Engineers (SREs) or Security Analysts tasked with diagnosing Kubernetes outages, patching vulnerabilities, or managing cloud costs in production environments.\nThis benchmarks use success rate as a main metric to evaluate agents. However, this metric is insufficient for engineering robust systems. Knowing that an agentic system achieves a 14% success rate on ITBench tells us that it failed, but not why: Did it fail because it",
+        "vector_score": 0.4373868405818939,
+        "reranker_score": -6.032220840454102,
+        "relevant": null
+      },
+      {
+        "rank": 8,
+        "title": "IBM and UC Berkeley Diagnose Why Enterprise Agents Fail Using IT-Bench and MAST",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-research/itbenchandmast",
+        "text": "Ayhan Sebin Saurabh Jha Rohan Arora Daby Sow Mert Cemri Melissa Pan Ion Stoica\nITBench HF Space ITBench HF Dataset MAST HF Dataset ITBench Github MAST Github\nIBM Research and UC Berkeley collaborated to study how agentic LLM systems break in real-world IT automation, for tasks involving incident triage, logs/metrics queries, and Kubernetes actions in long-horizon tool loops.\nBenchmarks typically reduce performance to a single number, telling you whether an agent failed but never why. To solve this black-box problem, we applied MAST (Multi-Agent System Failure Taxonomy), an emerging practice for diagnosing agentic reliability ). By leveraging MAST to analyze ITBench—the industry benchmark for SRE, Security, and FinOps automation—we turned raw execution traces into structured failure signatures, revealing exactly what broke and how to fix it. We annotated 310 ITBench SRE traces across three distinct model classes: Gemini-3-Flash, Kimi-K2, and GPT-OSS-120B.\nTakeaways from our analysis whe",
+        "vector_score": 0.4347047805786133,
+        "reranker_score": -9.90441608428955,
+        "relevant": null
+      }
+    ]
+  },
+  {
+    "query": "multilingual AI models",
+    "results": [
+      {
+        "rank": 1,
+        "title": "Build Low-Latency Multilingual Voice Agents: Open Weights & Full Deployment Control with NVIDIA Magpie TTS",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents",
+        "text": "or conversational AI applications, Magpie provides an open foundation for production voice AI.\nToday's voice applications don't serve a single language.\nGlobal customer support, enterprise assistants, healthcare documentation, retail automation, and translation workflows increasingly require natural conversations across multiple languages — all while maintaining low latency.\nSupporting more languages is only part of the challenge. Developers also need the ability to:\nOpen models change what's possible on every one of these.\nMagpie TTS Multilingual is a 364M-parameter open-weights model supporting:\nEnglish · Spanish · French · German · Italian · Vietnamese · Mandarin · Hindi · Japanese · Modern Standard Arabic (new) · Korean (new) · Brazilian Portuguese (new)\nEach language includes male and female speaker voices through a shared multilingual speaker representation.\nThis release also improves multilingual flexibility with expanded code-switching support for Hindi and Japanese, enabled t",
+        "vector_score": 0.6371501684188843,
+        "reranker_score": 5.251767635345459,
+        "relevant": true
+      },
+      {
+        "rank": 2,
+        "title": "Build Low-Latency Multilingual Voice Agents: Open Weights & Full Deployment Control with NVIDIA Magpie TTS",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents",
+        "text": "hitecture — purpose-built ASR, TTS, and LLM components running together — keeps each layer independently tunable and deployable on infrastructure you own.\nNVIDIA Magpie Multilingual TTS is built for that. With open weights, production-ready NVIDIA NIM , and support for 12 languages, you can deploy multilingual speech inside your own infrastructure, optimize latency for your workload, and customize the model for your domain — end to end, in your own environment.\nThe latest release expands multilingual coverage with Modern Standard Arabic, Korean, and Brazilian Portuguese, while improving quality across many existing languages through updated training data and model improvements.\nWhether you're building customer support agents, healthcare assistants, enterprise copilots, translation systems, or conversational AI applications, Magpie provides an open foundation for production voice AI.\nToday's voice applications don't serve a single language.\nGlobal customer support, enterprise assistants",
+        "vector_score": 0.49707016348838806,
+        "reranker_score": 4.874890327453613,
+        "relevant": true
+      },
+      {
+        "rank": 3,
+        "title": "Granite Embedding Multilingual R2: Open Apache 2.0 Multilingual Embeddings with 32K Context — Best Sub-100M Retrieval Quality",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-granite/granite-embedding-multilingual-r2",
+        "text": "ry The Models\nMultilingual embedding models face a persistent tension: broad language coverage usually comes at the cost of model size, and small models usually sacrifice languages. If you work across languages — retrieval-augmented generation over multilingual corpora, cross-lingual search, code retrieval in international teams — you've likely had to choose between a model that's fast enough and one that's good enough.\nThe Granite Embedding Multilingual R2 release narrows that gap considerably. We're releasing two new multilingual embedding models:\nBoth models support 200+ languages with enhanced retrieval quality for 52 languages and programming code , handle context lengths up to 32,768 tokens (a 64x increase over their R1 predecessors), and are released under the Apache 2.0 license. They work out of the box with sentence-transformers and transformers , require no task-specific instructions, and are compatible as drop-in replacements in LangChain , LlamaIndex , Haystack , and Milvus",
+        "vector_score": 0.5858687162399292,
+        "reranker_score": 4.559800148010254,
+        "relevant": true
+      },
+      {
+        "rank": 4,
+        "title": "Granite Embedding Multilingual R2: Open Apache 2.0 Multilingual Embeddings with 32K Context — Best Sub-100M Retrieval Quality",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ibm-granite/granite-embedding-multilingual-r2",
+        "text": "TL;DR: Two new Apache 2.0 multilingual embedding models built on ModernBERT — a 97M-parameter compact model that beats every open sub-100M multilingual embedder on MTEB Multilingual Retrieval (60.3), and a 311M full-size model that scores 65.2 on MTEB Multilingual Retrieval (#2 among open models under 500M parameters) with Matryoshka support. Both cover 200+ languages, are tuned on 52 languages, handle 32K-token context (64x R1), and add code retrieval across 9 programming languages.\nIn this post: Enterprise-Ready by Design · A Strong Sub-100M Multilingual Model · What Changed from R1 · Training the Full-Size 311M Model · Building the compact 97M Multilingual Model · Benchmark Results · Matryoshka Embeddings · Deployment Options · For Framework Integrators · Which Model Should You Use? · Try The Models\nMultilingual embedding models face a persistent tension: broad language coverage usually comes at the cost of model size, and small models usually sacrifice languages. If you work across",
+        "vector_score": 0.526404619216919,
+        "reranker_score": 4.01716423034668,
+        "relevant": true
+      },
+      {
+        "rank": 5,
+        "title": "Transformers v5: Simple model definitions powering the AI ecosystem",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/transformers-v5",
+        "text": "unity effort, it's now very easy to load GGUF files in transformers for further fine-tuning. Conversely, transformers models can be easily converted to GGUF files for use with llama.cpp.\nThe Transformers framework is the go-to place for reference AI model implementations. The framework plays a crucial role in enabling modern AI across the entire stack. The team and the community behind the project truly understand and embrace the spirit of the open-source development and collaboration.\nThe same is true for MLX, where the transformers' safetensors files are directly compatible with MLX's models.\nIt’s hard to overstate the importance of Transformers (and datasets, tokenizers, etc) to the open-source and\noverall AI ecosystem. I can’t count the number of times I’ve personally used Transformers as a source-of-truth.\nFinally, we’re pushing the boundaries of local inference and are working hand-in-hand with the executorch team to get the transformers models to be available on-device. We’re ex",
+        "vector_score": 0.28769242763519287,
+        "reranker_score": -3.264019727706909,
+        "relevant": false
+      },
+      {
+        "rank": 6,
+        "title": "Transformers v5: Simple model definitions powering the AI ecosystem",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/transformers-v5",
+        "text": "ers v5 empowers the SGLang team to spend less time on model reimplementation and more time on kernel optimization. We look forward to building a more efficient and unified AI ecosystem together!\nRecently, we've been working hand in hand with the most popular inference engines for them to use transformers as a backend. The value added is significant: as soon as a model is added to transformers , it becomes available in these inference engines, while taking advantage of the strengths each engine provides : inference optimizations, specialized kernels, dynamic batching, etc.\nWe've also been working very closely with ONNXRuntime, llama.cpp and MLX so that the implementations between transformers and these modeling libraries have great interoperability. For example, thanks to a significant community effort, it's now very easy to load GGUF files in transformers for further fine-tuning. Conversely, transformers models can be easily converted to GGUF files for use with llama.cpp.\nThe Transform",
+        "vector_score": 0.2917048931121826,
+        "reranker_score": -4.495222091674805,
+        "relevant": null
+      },
+      {
+        "rank": 7,
+        "title": "Codex is Open Sourcing AI models",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/hf-skills-training-codex",
+        "text": "on the Hub, ready to use.\nThis isn't a toy demo. The extension supports the same training methods used in production: supervised fine-tuning, direct preference optimization, and reinforcement learning with verifiable rewards. You can train models from 0.5B to 7B parameters, convert them to GGUF for local deployment, and run multi-stage pipelines that combine different techniques.\nWe explored this single prompt approach in the Claude Code tutorial. However, we can now go further and get OpenAI Codex to do end-to-end Machine Learning experiments. For example, Codex should be able to monitor progress, evaluate the models, and maintain an up to date training report. This will allow engineers to delegate experiments to Codex and review reports in a more hands-off way. It will also allow Codex to make more decisions on its own based on the training report and evaluation results.\nCodex is OpenAI's AI coding agent included in ChatGPT Plus, Pro, Business, Edu, and Enterprise plans. Codex bring",
+        "vector_score": 0.28447550535202026,
+        "reranker_score": -5.420421600341797,
+        "relevant": null
+      },
+      {
+        "rank": 8,
+        "title": "Codex is Open Sourcing AI models",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/hf-skills-training-codex",
+        "text": "dget $15-40 for production.\nFor large models (7B+) , this HF skills job is not suitable for this scale yet. But stay tuned because we are working on it!\nWe've shown that Codex can handle the full lifecycle of model fine-tuning: validating data, selecting hardware, generating scripts, submitting jobs, monitoring progress, and converting outputs.\nThe extension is open source . You can extend it, customize it for your workflows, or use it as a starting point for other training scenarios.\nIs this possible to do on local infrastructure without having paid tier?\nThis post is really helpful for me. I didn’t know AI agents could handle tasks like training and deployment so easily. After reading this, I’m thinking about applying an AI agent on my own website too to improve how information is organized and delivered for users: https://ebiharbhumi.com . Thanks for sharing such a useful guide!\nReally interesting update on how Codex is integrating with HF-skills for advanced AI workflows. Automatin",
+        "vector_score": 0.3091238737106323,
+        "reranker_score": -5.848082065582275,
+        "relevant": null
+      }
+    ]
+  },
+  {
+    "query": "local AI inference",
+    "results": [
+      {
+        "rank": 1,
+        "title": "GGML and llama.cpp join HF to ensure the long-term progress of Local AI",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ggml-joins-hf",
+        "text": "to cloud inference, it is crucial to improve and simplify the way in which casual users deploy and access local models. We will work towards making llama.cpp ubiquitous and readily available everywhere.\nOur shared goal is to provide the community with the building blocks to make open-source superintelligence accessible to the world over the coming years.\nWe will achieve this together with the growing Local AI community, as we continue to build the ultimate inference stack that runs as efficiently as possible on our devices.\nBig congrats to GGML and Hugging Face! Great news for the Local AI community. Excited to see llama.cpp grow stronger and make local AI easier for everyone!\nLLama.cpp is the best AI project by far, super reactive to bug solve, very competent team, love you guys, you desserve it\nOur shared goal is to provide the community with the building blocks to make open-source superintelligence accessible to the world over the coming years.\nHugging Face smart moves never ending.",
+        "vector_score": 0.41299283504486084,
+        "reranker_score": 6.523880958557129,
+        "relevant": true
+      },
+      {
+        "rank": 2,
+        "title": "GGML and llama.cpp join HF to ensure the long-term progress of Local AI",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/ggml-joins-hf",
+        "text": "We are super happy to announce that GGML, creators of Llama.cpp, are joining HF in order to keep future AI open. 🔥\nGeorgi Gerganov and team are joining HF with the goal of scaling and supporting the community behind ggml and llama.cpp as Local AI continues to make exponential progress in the coming years.\nWe've been working with Georgi and team for quite some time (we even have awesome core contributors to llama.cpp like Son and Alek in the team already) so this has been a very natural process.\nllama.cpp is the fundamental building block for local inference, and transformers is the fundamental building block for model definition, so this is basically a match made in heaven. ❤️\nNot much – Georgi and team still dedicate 100% of their time maintaining llama.cpp and have full autonomy and leadership on the technical directions and the community.\nHF is providing the project with long-term sustainable resources, improving the chances of the project to grow and thrive. The project will contin",
+        "vector_score": 0.33567142486572266,
+        "reranker_score": 4.699526309967041,
+        "relevant": true
+      },
+      {
+        "rank": 3,
+        "title": "Transformers v5: Simple model definitions powering the AI ecosystem",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/transformers-v5",
+        "text": "unity effort, it's now very easy to load GGUF files in transformers for further fine-tuning. Conversely, transformers models can be easily converted to GGUF files for use with llama.cpp.\nThe Transformers framework is the go-to place for reference AI model implementations. The framework plays a crucial role in enabling modern AI across the entire stack. The team and the community behind the project truly understand and embrace the spirit of the open-source development and collaboration.\nThe same is true for MLX, where the transformers' safetensors files are directly compatible with MLX's models.\nIt’s hard to overstate the importance of Transformers (and datasets, tokenizers, etc) to the open-source and\noverall AI ecosystem. I can’t count the number of times I’ve personally used Transformers as a source-of-truth.\nFinally, we’re pushing the boundaries of local inference and are working hand-in-hand with the executorch team to get the transformers models to be available on-device. We’re ex",
+        "vector_score": 0.27443844079971313,
+        "reranker_score": 1.1074094772338867,
+        "relevant": true
+      },
+      {
+        "rank": 4,
+        "title": "Transformers v5: Simple model definitions powering the AI ecosystem",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/transformers-v5",
+        "text": "as a source-of-truth.\nFinally, we’re pushing the boundaries of local inference and are working hand-in-hand with the executorch team to get the transformers models to be available on-device. We’re expanding the coverage to multimodal models (vision, audio) through optimum .\nQuantization is quickly emerging as the standard for state-of-the-art model development. Many SOTA models are now released in low-precision formats such as 8-bit and 4-bit (e.g., gpt-oss, Kimi-K2, Deepseek-r1), hardware is increasingly optimized for low-precision workloads, and the community is actively sharing high-quality quantized checkpoints. In v5, we're making quantization a central focus of Transformers support, ensuring full compatibility with all major features, and delivering a reliable framework for training and inference.\nWe introduce a significant change to the way we load weights in our models; and with this, we move to quantization being a first-class citizen.\nOur collaboration with the Transformers",
+        "vector_score": 0.33624786138534546,
+        "reranker_score": 0.857923686504364,
+        "relevant": true
+      },
+      {
+        "rank": 5,
+        "title": "DeepInfra on Hugging Face Inference Providers 🔥",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/inference-providers-deepinfra",
+        "text": "We're thrilled to share that DeepInfra is now a supported Inference Provider on the Hugging Face Hub!\nDeepInfra joins our growing ecosystem, enhancing the breadth and capabilities of serverless inference directly on the Hub's model pages. Inference Providers are also seamlessly integrated into our client SDKs (for both JS and Python), making it super easy to use a wide variety of models with your preferred providers.\nDeepInfra is a serverless AI inference platform offering one of the most cost-effective pricing per token in the industry. With a catalog of over 100 models, DeepInfra makes it easy for developers to integrate a wide range of AI capabilities into their applications with minimal setup.\nDeepInfra supports a broad spectrum of model types - from LLMs to text-to-image, text-to-video, embeddings, and more. As part of this initial integration, DeepInfra is launching support for conversational and text-generation tasks on Hugging Face, enabling access to popular open-weight LLMs s",
+        "vector_score": 0.2915349006652832,
+        "reranker_score": -0.09787401556968689,
+        "relevant": false
+      },
+      {
+        "rank": 6,
+        "title": "Baseten on Hugging Face Inference Providers 🔥",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/baseten",
+        "text": "We're thrilled to share that Baseten is now a supported Inference Provider on the Hugging Face Hub!\nBaseten joins our growing ecosystem, enhancing the breadth and capabilities of serverless inference directly on the Hub's model pages. Inference Providers are also seamlessly integrated into our client SDKs (for both JS and Python), making it super easy to use a wide variety of models with your preferred providers.\nBaseten is an AI infrastructure platform that covers serverless AI, training and more. With a catalog of many frontier models, Baseten makes it easy for developers to integrate a wide range of AI capabilities into their applications with minimal setup.\nBaseten supports a broad spectrum of model types - from LLMs to text-to-speech and more. As part of this initial integration, Baseten is launching support for conversational and text-generation tasks on Hugging Face, enabling access to popular open-weight LLMs such as Kimi K3 , latest DeepSeek V4 Flash , GLM-5.2 , and many more.",
+        "vector_score": 0.255765825510025,
+        "reranker_score": -0.7454814910888672,
+        "relevant": null
+      },
+      {
+        "rank": 7,
+        "title": "DeepInfra on Hugging Face Inference Providers 🔥",
+        "source": "Hugging Face",
+        "url": "https://huggingface.co/blog/inference-providers-deepinfra",
+        "text": "o, embeddings, and more. As part of this initial integration, DeepInfra is launching support for conversational and text-generation tasks on Hugging Face, enabling access to popular open-weight LLMs such as DeepSeek V4 , Kimi-K2.6 , GLM-5.1 , and many more. Support for additional tasks (text-to-image, text-to-video, embeddings, and more) will roll out soon!\nRead more about how to use DeepInfra as an Inference Provider in its dedicated documentation page .\nSee the full list of models supported by DeepInfra here .\nFollow DeepInfra on Hugging Face: https://huggingface.co/DeepInfra .\nDeepInfra is available through the Hugging Face SDKs - huggingface_hub (>= 1.11.2) for Python and @huggingface/inference for JavaScript.\nThe following examples show how to use DeepSeek V4 Pro through DeepInfra. Use a Hugging Face token to authenticate - the request will be routed to DeepInfra automatically.\nHugging Face Inference Providers are integrated in most Agent Harnesses - including Pi, OpenCode, Hermes",
+        "vector_score": 0.27571046352386475,
+        "reranker_score": -9.150150299072266,
+        "relevant": null
+      }
+    ]
+  }
+]
