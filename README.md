@@ -376,8 +376,7 @@ ai-research-intelligence-agent/
 Clone the repository:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
-cd ai-research-intelligence-agent
+ggit clone https://github.com/aIjory/ai-research-intelligence-agent.git
 ```
 
 Create a virtual environment:
