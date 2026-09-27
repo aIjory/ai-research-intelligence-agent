@@ -72,7 +72,7 @@ def main():
         )
 
         hybrid_score = source.get(
-            "hybrid_score"
+            "final_score"
         )
 
         reranker_score = source.get(
